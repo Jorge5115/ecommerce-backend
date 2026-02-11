@@ -28,7 +28,7 @@ Plataforma de e-commerce completa con Spring Boot + React + PostgreSQL + Redis
 - [x] AuthService creado
 - [x] AuthController creado
 
-Día 4: CRUD de Productos (+ Cambio de BB.DD)
+### Día 4: CRUD de Productos (+ Cambio de BB.DD)
 
 - [x] DTOs creados (ProductDTO, CreateProductDTO, UpdateProductDTO)
 - [x] Custom Exceptions y GlobalExceptionHandler
