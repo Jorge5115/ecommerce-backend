@@ -55,3 +55,12 @@ Plataforma de e-commerce completa con Spring Boot + React + PostgreSQL + Redis
 - [x] ProductService con @CacheEvict en mutaciones
 - [x] DTOs implementan Serializable
 - [x] Redis corriendo en Docker
+
+### Día 7: Testing Backend
+
+- [x] H2 configurado para tests
+- [x] application.properties de test creado
+- [x] AuthServiceTest con 4 tests
+- [x] ProductServiceTest con 6 tests
+- [x] AuthControllerTest con 3 tests
+- [x] EcommerceApplicationTests pasando
