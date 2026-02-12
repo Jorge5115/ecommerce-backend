@@ -49,9 +49,9 @@ Plataforma de e-commerce completa con Spring Boot + React + PostgreSQL + Redis
 
 ### Día 6: Redis Cache
 
-- [x]RedisConfig creado con serialización JSON
-- [x]Cache habilitado con @EnableCaching
-- [x]CategoryService con @Cacheable y @CacheEvict
-- [x]ProductService con @CacheEvict en mutaciones
-- [x]DTOs implementan Serializable
-- [x]Redis corriendo en Docker
+- [x] RedisConfig creado con serialización JSON
+- [x] Cache habilitado con @EnableCaching
+- [x] CategoryService con @Cacheable y @CacheEvict
+- [x] ProductService con @CacheEvict en mutaciones
+- [x] DTOs implementan Serializable
+- [x] Redis corriendo en Docker
