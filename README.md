@@ -36,3 +36,13 @@ Plataforma de e-commerce completa con Spring Boot + React + PostgreSQL + Redis
 - [x] ProductController con endpoints REST
 - [x] Method Security habilitado
 - [x] Migrado a MySQL
+
+### Día 5: Categorías & Búsqueda Avanzada
+
+- [x] DTOs de Category creados
+- [x] CategoryRepository actualizado
+- [x] CategoryService creado
+- [x] CategoryController creado
+- [x] ProductRepository con búsqueda avanzada
+- [x] ProductService con método searchProducts
+- [x] ProductController con endpoint de búsqueda
