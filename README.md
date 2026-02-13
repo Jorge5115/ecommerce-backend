@@ -83,3 +83,14 @@ Plataforma de e-commerce completa con Spring Boot + React + PostgreSQL + Redis
 - [x] Devolución de stock al cancelar pedido
 - [x] Soporte para cupones de descuento
 - [x] Cálculo automático de impuestos (21%)
+
+### Día 10: Sistema de Reseñas y Valoraciones
+
+- [x] DTOs de reseñas creados (ReviewDTO, CreateReviewDTO)
+- [x] ReviewRepository actualizado con queries personalizadas
+- [x] ReviewService con lógica completa
+- [x] ReviewController con endpoints REST
+- [x] Verificación de compra confirmada automática
+- [x] Actualización automática de rating del producto
+- [x] Un usuario solo puede reseñar un producto una vez
+
