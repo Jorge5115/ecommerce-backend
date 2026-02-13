@@ -72,3 +72,14 @@ Plataforma de e-commerce completa con Spring Boot + React + PostgreSQL + Redis
 - [x] CartController con todos los endpoints
 - [x] Carrito expira automáticamente en 7 días
 - [x] Validación de stock al añadir productos
+
+### Día 9: Sistema de Pedidos
+
+- [x] DTOs de pedidos creados (OrderDTO, OrderItemDTO, CreateOrderDTO)
+- [x] OrderRepository actualizado
+- [x] OrderService con lógica completa
+- [x] OrderController con endpoints de usuario y admin
+- [x] Descuento de stock automático al crear pedido
+- [x] Devolución de stock al cancelar pedido
+- [x] Soporte para cupones de descuento
+- [x] Cálculo automático de impuestos (21%)
