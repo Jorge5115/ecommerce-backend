@@ -64,3 +64,11 @@ Plataforma de e-commerce completa con Spring Boot + React + PostgreSQL + Redis
 - [x] ProductServiceTest con 6 tests
 - [x] AuthControllerTest con 3 tests
 - [x] EcommerceApplicationTests pasando
+
+### Día 8: Carrito con Redis
+
+- [x] DTOs del carrito creados (CartDTO, CartItemDTO, AddToCartDTO)
+- [x] CartService con lógica completa en Redis
+- [x] CartController con todos los endpoints
+- [x] Carrito expira automáticamente en 7 días
+- [x] Validación de stock al añadir productos
