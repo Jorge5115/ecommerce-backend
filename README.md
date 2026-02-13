@@ -94,3 +94,14 @@ Plataforma de e-commerce completa con Spring Boot + React + PostgreSQL + Redis
 - [x] Actualización automática de rating del producto
 - [x] Un usuario solo puede reseñar un producto una vez
 
+### Día 11: Wishlist y Perfil de Usuario
+
+- [x] DTOs creados (WishlistDTO, UserDTO, UpdateProfileDTO)
+- [x] WishlistRepository actualizado
+- [x] WishlistService con lógica completa
+- [x] UserService con perfil y actualización
+- [x] WishlistController con todos los endpoints
+- [x] UserController con perfil
+- [x] Funcionalidad mover de wishlist a carrito
+- [x] Cambio de contraseña con verificación
+
