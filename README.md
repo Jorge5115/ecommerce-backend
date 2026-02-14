@@ -1,6 +1,6 @@
-# 🛒 E-commerce Full-Stack
+# 🛒 E-commerce Full-Stack (BACK)
 
-Plataforma de e-commerce completa con Spring Boot + React + PostgreSQL + Redis
+Plataforma de e-commerce completa con Spring Boot + React + MySQL + Redis
 
 ### Día 1: Setup inicial del proyecto
 - [x] Proyecto Spring Boot creado
@@ -35,7 +35,7 @@ Plataforma de e-commerce completa con Spring Boot + React + PostgreSQL + Redis
 - [x] ProductService con lógica CRUD
 - [x] ProductController con endpoints REST
 - [x] Method Security habilitado
-- [x] Migrado a MySQL
+- [x] Migrado de PostgreSQL a MySQL
 
 ### Día 5: Categorías & Búsqueda Avanzada
 
