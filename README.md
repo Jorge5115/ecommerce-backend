@@ -137,3 +137,12 @@ Plataforma de e-commerce completa con Spring Boot + React + PostgreSQL + Redis
 - [x] Integrado con OrderService
 - [x] SecurityConfig actualizado para WebSocket
 
+### Día 15: Documentación con Swagger
+
+- [x] Dependencia springdoc-openapi añadida
+- [x] SwaggerConfig creado con JWT auth
+- [x] SecurityConfig actualizado para Swagger
+- [x] Todos los controllers documentados con @Tag y @Operation
+- [x] Swagger UI accesible en /swagger-ui/index.html
+- [x] Autenticación JWT integrada en Swagger
+
