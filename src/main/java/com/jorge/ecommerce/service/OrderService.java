@@ -14,6 +14,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import com.jorge.ecommerce.dto.NotificationDTO;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ public class OrderService {
     private final ProductRepository productRepository;
     private final CouponRepository couponRepository;
     private final CartService cartService;
+    private final NotificationService notificationService;
 
     @Transactional
     public OrderDTO createOrder(String userEmail, CreateOrderDTO createOrderDTO) {
@@ -66,6 +68,11 @@ public class OrderService {
             product.setStock(product.getStock() - cartItem.getQuantity());
             productRepository.save(product);
 
+            // Notificación de stock bajo
+            if (product.getStock() <= 5) {
+                notificationService.sendLowStockNotification(product.getName(), product.getStock());
+            }
+
             OrderItem orderItem = new OrderItem();
             orderItem.setOrder(order);
             orderItem.setProduct(product);
@@ -94,6 +101,8 @@ public class OrderService {
 
         Order savedOrder = orderRepository.save(order);
         cartService.clearCart(userEmail);
+
+        notificationService.sendOrderNotification(userEmail, convertToDTO(savedOrder));
 
         return convertToDTO(savedOrder);
     }
@@ -150,7 +159,10 @@ public class OrderService {
         Order order = orderRepository.findById(orderId)
                 .orElseThrow(() -> new ResourceNotFoundException("Order not found with id: " + orderId));
         order.setStatus(status);
-        return convertToDTO(orderRepository.save(order));
+
+        OrderDTO updatedOrder = convertToDTO(orderRepository.save(order));
+        notificationService.sendOrderStatusNotification(order.getUser().getEmail(), updatedOrder);
+        return updatedOrder;
     }
 
     private BigDecimal applyCoupon(String couponCode, BigDecimal subtotal) {
