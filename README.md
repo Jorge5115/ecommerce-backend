@@ -124,6 +124,6 @@ Plataforma de e-commerce completa con Spring Boot + React + PostgreSQL + Redis
 - [x] Dashboard con métricas en tiempo real
 - [x] Gestión de usuarios desde admin
 - [x] Top productos más vendidos
-s
+
 
 
