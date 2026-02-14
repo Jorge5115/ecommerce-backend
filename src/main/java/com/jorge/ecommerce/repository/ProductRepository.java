@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
@@ -24,4 +26,10 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
             @Param("maxPrice") java.math.BigDecimal maxPrice,
             Pageable pageable
     );
+
+    @Query("SELECT p.id, p.name, p.imageUrl, SUM(oi.quantity), SUM(oi.subtotal) " +
+            "FROM OrderItem oi JOIN oi.product p " +
+            "GROUP BY p.id, p.name, p.imageUrl " +
+            "ORDER BY SUM(oi.quantity) DESC")
+    List<Object[]> findTopSellingProducts(Pageable pageable);
 }
