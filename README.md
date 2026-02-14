@@ -115,4 +115,15 @@ Plataforma de e-commerce completa con Spring Boot + React + PostgreSQL + Redis
 - [x] Cupones por porcentaje y por cantidad fija
 - [x] Integrado con sistema de pedidos
 
+### Día 13: Panel de Administración
+
+- [x] DTOs de estadísticas creados (DashboardStatsDTO, TopProductDTO)
+- [x] Queries personalizadas en repositories
+- [x] AdminService con estadísticas completas
+- [x] AdminController con endpoints de administración
+- [x] Dashboard con métricas en tiempo real
+- [x] Gestión de usuarios desde admin
+- [x] Top productos más vendidos
+
+
 
