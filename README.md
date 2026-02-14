@@ -125,5 +125,15 @@ Plataforma de e-commerce completa con Spring Boot + React + PostgreSQL + Redis
 - [x] Gestión de usuarios desde admin
 - [x] Top productos más vendidos
 
+### Día 14: WebSockets - Notificaciones en Tiempo Real
 
+- [x] WebSocketConfig configurado con STOMP
+- [x] NotificationDTO creado
+- [x] NotificationService con notificaciones a usuarios y admins
+- [x] Notificaciones automáticas al crear pedidos
+- [x] Notificaciones de cambio de estado de pedido
+- [x] Notificaciones de stock bajo
+- [x] NotificationController para broadcast manual
+- [x] Integrado con OrderService
+- [x] SecurityConfig actualizado para WebSocket
 
