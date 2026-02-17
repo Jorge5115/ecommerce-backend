@@ -20,9 +20,16 @@ public class ImageService {
                 file.getBytes(),
                 ObjectUtils.asMap(
                         "folder", "ecommerce/" + folder,
-                        "resource_type", "image"
+                        "resource_type", "image",
+                        "moderation", "aws_rek"
                 )
         );
+
+        String moderationStatus = (String) uploadResult.get("moderation_status");
+        if ("rejected".equals(moderationStatus)) {
+            throw new RuntimeException("Imagen rechazada por contenido inapropiado");
+        }
+
         return (String) uploadResult.get("secure_url");
     }
 
