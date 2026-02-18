@@ -45,13 +45,18 @@ public class ImageService {
         Map result = cloudinary.api().resources(
                 ObjectUtils.asMap(
                         "type", "upload",
-                        "prefix", "ecommerce/gallery/" + folder,
-                        "max_results", 50
+                        "prefix", "",
+                        "max_results", 100
                 )
         );
 
+        System.out.println("DEBUG: Resultado de Cloudinary: " + result);
+
         List<Map> resources = (List<Map>) result.get("resources");
+        System.out.println("DEBUG: Número de recursos encontrados: " + resources.size());
+
         return resources.stream()
+                .filter(r -> folder.equals(r.get("asset_folder")))
                 .map(r -> (String) r.get("secure_url"))
                 .collect(java.util.stream.Collectors.toList());
     }

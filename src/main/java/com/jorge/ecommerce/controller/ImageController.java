@@ -49,7 +49,7 @@ public class ImageController {
     }
 
     @Operation(summary = "Obtener imagenes de la galeria")
-    @GetMapping("/gallery/{folder}")
+    @GetMapping("/list/{folder}")
     public ResponseEntity<List<String>> getGallery(@PathVariable String folder) {
         try {
             List<String> urls = imageService.getGalleryImages(folder);
