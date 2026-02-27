@@ -2,6 +2,30 @@
 
 Plataforma de e-commerce completa con Spring Boot + React + MySQL + Redis
 
+## 🚀 Características
+
+- Autenticación JWT con roles (USER/ADMIN)
+- Carrito de compra con Redis
+- Sistema de pedidos completo
+- Reseñas y valoraciones
+- Wishlist
+- Sistema de cupones
+- Panel de administración
+- Notificaciones WebSocket en tiempo real
+- Subida de imágenes a Cloudinary
+- Documentación Swagger
+
+## 🛠️ Tecnologías
+
+**Backend:**
+- Spring Boot 4 + Java 21 
+- Spring Security con JWT 
+- MySQL para persistencia 
+- Redis para caché y sesiones 
+- WebSockets para tiempo real 
+- Cloudinary para gestión de imágenes 
+- Docker para contenedores
+
 ### Día 1: Setup inicial del proyecto
 - [x] Proyecto Spring Boot creado
 - [x] PostgreSQL corriendo en Docker
