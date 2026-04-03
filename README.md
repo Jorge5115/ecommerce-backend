@@ -1,172 +1,150 @@
-# 🛒 E-commerce Full-Stack (BACK)
+# Stack Shop — Backend
 
-Plataforma de e-commerce completa con Spring Boot + React + MySQL + Redis
+API REST para una plataforma e-commerce completa construida con Spring Boot, Spring Security y JWT. Incluye carrito persistente con Redis, notificaciones en tiempo real por WebSocket, subida de imágenes a Cloudinary y documentación interactiva con Swagger.
 
-## 🚀 Características
+🔗 **Frontend:** [github.com/Jorge5115/ecommerce-frontend](https://github.com/Jorge5115/ecommerce-frontend)
 
-- Autenticación JWT con roles (USER/ADMIN)
-- Carrito de compra con Redis
-- Sistema de pedidos completo
-- Reseñas y valoraciones
-- Wishlist
-- Sistema de cupones
-- Panel de administración
-- Notificaciones WebSocket en tiempo real
-- Subida de imágenes a Cloudinary
-- Documentación Swagger
+---
 
-## 🛠️ Tecnologías
+## Funcionalidades
 
-**Backend:**
-- Spring Boot 4 + Java 21 
-- Spring Security con JWT 
-- MySQL para persistencia 
-- Redis para caché y sesiones 
-- WebSockets para tiempo real 
-- Cloudinary para gestión de imágenes 
-- Docker para contenedores
+- **Autenticación y autorización** — JWT con roles USER y ADMIN
+- **Catálogo de productos** — CRUD completo con búsqueda avanzada y filtros por categoría
+- **Carrito de compra** — persistido en Redis, expira automáticamente a los 7 días
+- **Sistema de pedidos** — gestión completa con tracking de estado y descuento de stock automático
+- **Reseñas y valoraciones** — solo usuarios con compra verificada pueden reseñar
+- **Wishlist** — lista de favoritos con opción de mover al carrito
+- **Cupones de descuento** — por porcentaje o cantidad fija, con validación de fecha y límite de uso
+- **Panel de administración** — dashboard con métricas en tiempo real, gestión de usuarios y productos
+- **Notificaciones en tiempo real** — WebSocket con STOMP para alertas de pedidos y stock bajo
+- **Subida de imágenes** — integración con Cloudinary
 
-### Día 1: Setup inicial del proyecto
-- [x] Proyecto Spring Boot creado
-- [x] PostgreSQL corriendo en Docker
-- [x] Redis corriendo en Docker
-- [x] Estructura de carpetas creada
-- [x] application.properties configurado
-- [x] Flyway setup
-- [x] Entity User creada
+---
 
-### Día 2: Entidades y relaciones 
-- [x] Enums creados (UserRole, OrderStatus, PaymentMethod, PaymentStatus)
-- [x] Todas las entidades creadas
-- [x] Relaciones configuradas
-- [x] JPA Auditing habilitado
-- [x] Repositories creados
+## Stack tecnológico
 
-### Día 3: Autenticación JWT
-- [x] Dependencias JWT añadidas
-- [x] DTOs creados (LoginRequest, RegisterRequest, AuthResponse)
-- [x] JwtUtil creado
-- [x] CustomUserDetailsService implementado
-- [x] JwtAuthenticationFilter creado
-- [x] SecurityConfig configurado
-- [x] AuthService creado
-- [x] AuthController creado
+| Capa | Tecnología |
+|------|-----------|
+| Lenguaje | Java 21 |
+| Framework | Spring Boot · Spring Security |
+| Autenticación | JWT |
+| Base de datos | MySQL |
+| Caché / Sesiones | Redis |
+| Tiempo real | WebSockets + STOMP |
+| Imágenes | Cloudinary |
+| Contenedores | Docker / Docker Compose |
+| Documentación | Swagger (SpringDoc OpenAPI) |
 
-### Día 4: CRUD de Productos (+ Cambio de BB.DD)
+---
 
-- [x] DTOs creados (ProductDTO, CreateProductDTO, UpdateProductDTO)
-- [x] Custom Exceptions y GlobalExceptionHandler
-- [x] ProductService con lógica CRUD
-- [x] ProductController con endpoints REST
-- [x] Method Security habilitado
-- [x] Migrado de PostgreSQL a MySQL
+## Requisitos previos
 
-### Día 5: Categorías & Búsqueda Avanzada
+- Java 21
+- Docker y Docker Compose
+- Cuenta en [Cloudinary](https://cloudinary.com) (gratuita)
 
-- [x] DTOs de Category creados
-- [x] CategoryRepository actualizado
-- [x] CategoryService creado
-- [x] CategoryController creado
-- [x] ProductRepository con búsqueda avanzada
-- [x] ProductService con método searchProducts
-- [x] ProductController con endpoint de búsqueda
+---
 
-### Día 6: Redis Cache
+## Instalación y arranque
 
-- [x] RedisConfig creado con serialización JSON
-- [x] Cache habilitado con @EnableCaching
-- [x] CategoryService con @Cacheable y @CacheEvict
-- [x] ProductService con @CacheEvict en mutaciones
-- [x] DTOs implementan Serializable
-- [x] Redis corriendo en Docker
+### 1. Clonar el repositorio
 
-### Día 7: Testing Backend
+```bash
+git clone https://github.com/Jorge5115/ecommerce-backend.git
+cd ecommerce-backend
+```
 
-- [x] H2 configurado para tests
-- [x] application.properties de test creado
-- [x] AuthServiceTest con 4 tests
-- [x] ProductServiceTest con 6 tests
-- [x] AuthControllerTest con 3 tests
-- [x] EcommerceApplicationTests pasando
+### 2. Configurar variables de entorno
 
-### Día 8: Carrito con Redis
+Crea un archivo `src/main/resources/application-local.properties` con tus credenciales:
 
-- [x] DTOs del carrito creados (CartDTO, CartItemDTO, AddToCartDTO)
-- [x] CartService con lógica completa en Redis
-- [x] CartController con todos los endpoints
-- [x] Carrito expira automáticamente en 7 días
-- [x] Validación de stock al añadir productos
+```properties
+# Base de datos
+spring.datasource.url=jdbc:mysql://localhost:3306/stackshop
+spring.datasource.username=root
+spring.datasource.password=tu_password
 
-### Día 9: Sistema de Pedidos
+# Redis
+spring.data.redis.host=localhost
+spring.data.redis.port=6379
 
-- [x] DTOs de pedidos creados (OrderDTO, OrderItemDTO, CreateOrderDTO)
-- [x] OrderRepository actualizado
-- [x] OrderService con lógica completa
-- [x] OrderController con endpoints de usuario y admin
-- [x] Descuento de stock automático al crear pedido
-- [x] Devolución de stock al cancelar pedido
-- [x] Soporte para cupones de descuento
-- [x] Cálculo automático de impuestos (21%)
+# JWT
+jwt.secret=tu_clave_secreta_larga
+jwt.expiration=86400000
 
-### Día 10: Sistema de Reseñas y Valoraciones
+# Cloudinary
+cloudinary.cloud-name=tu_cloud_name
+cloudinary.api-key=tu_api_key
+cloudinary.api-secret=tu_api_secret
+```
 
-- [x] DTOs de reseñas creados (ReviewDTO, CreateReviewDTO)
-- [x] ReviewRepository actualizado con queries personalizadas
-- [x] ReviewService con lógica completa
-- [x] ReviewController con endpoints REST
-- [x] Verificación de compra confirmada automática
-- [x] Actualización automática de rating del producto
-- [x] Un usuario solo puede reseñar un producto una vez
+### 3. Levantar MySQL y Redis con Docker
 
-### Día 11: Wishlist y Perfil de Usuario
+```bash
+docker-compose up -d
+```
 
-- [x] DTOs creados (WishlistDTO, UserDTO, UpdateProfileDTO)
-- [x] WishlistRepository actualizado
-- [x] WishlistService con lógica completa
-- [x] UserService con perfil y actualización
-- [x] WishlistController con todos los endpoints
-- [x] UserController con perfil
-- [x] Funcionalidad mover de wishlist a carrito
-- [x] Cambio de contraseña con verificación
+### 4. Arrancar la aplicación
 
-### Día 12: Sistema de Cupones
+```bash
+./mvnw spring-boot:run
+```
 
-- [x] DTOs creados (CouponDTO, CreateCouponDTO, ValidateCouponDTO)
-- [x] CouponRepository actualizado
-- [x] CouponService con lógica completa
-- [x] CouponController con endpoints REST
-- [x] Validación completa de cupones (fecha, límite, mínimo)
-- [x] Cupones por porcentaje y por cantidad fija
-- [x] Integrado con sistema de pedidos
+La API estará disponible en `http://localhost:8080`
 
-### Día 13: Panel de Administración
+---
 
-- [x] DTOs de estadísticas creados (DashboardStatsDTO, TopProductDTO)
-- [x] Queries personalizadas en repositories
-- [x] AdminService con estadísticas completas
-- [x] AdminController con endpoints de administración
-- [x] Dashboard con métricas en tiempo real
-- [x] Gestión de usuarios desde admin
-- [x] Top productos más vendidos
+## Documentación de la API
 
-### Día 14: WebSockets - Notificaciones en Tiempo Real
+Con la aplicación corriendo, accede a Swagger UI:
 
-- [x] WebSocketConfig configurado con STOMP
-- [x] NotificationDTO creado
-- [x] NotificationService con notificaciones a usuarios y admins
-- [x] Notificaciones automáticas al crear pedidos
-- [x] Notificaciones de cambio de estado de pedido
-- [x] Notificaciones de stock bajo
-- [x] NotificationController para broadcast manual
-- [x] Integrado con OrderService
-- [x] SecurityConfig actualizado para WebSocket
+```
+http://localhost:8080/swagger-ui/index.html
+```
 
-### Día 15: Documentación con Swagger
+Desde ahí puedes explorar y probar todos los endpoints con autenticación JWT integrada.
 
-- [x] Dependencia springdoc-openapi añadida
-- [x] SwaggerConfig creado con JWT auth
-- [x] SecurityConfig actualizado para Swagger
-- [x] Todos los controllers documentados con @Tag y @Operation
-- [x] Swagger UI accesible en /swagger-ui/index.html
-- [x] Autenticación JWT integrada en Swagger
+---
 
+## Endpoints principales
+
+| Módulo | Ruta base |
+|--------|-----------|
+| Auth | `/api/auth` |
+| Productos | `/api/products` |
+| Categorías | `/api/categories` |
+| Carrito | `/api/cart` |
+| Pedidos | `/api/orders` |
+| Reseñas | `/api/reviews` |
+| Wishlist | `/api/wishlist` |
+| Cupones | `/api/coupons` |
+| Administración | `/api/admin` |
+| WebSocket | `/ws` |
+
+---
+
+## Estructura del proyecto
+
+```
+src/
+└── main/
+    └── java/
+        └── com/stackshop/
+            ├── auth/          # JWT, filtros, seguridad
+            ├── cart/          # Carrito con Redis
+            ├── category/      # Categorías
+            ├── coupon/        # Sistema de cupones
+            ├── notification/  # WebSockets
+            ├── order/         # Pedidos
+            ├── product/       # Catálogo
+            ├── review/        # Reseñas
+            ├── user/          # Perfil y wishlist
+            └── admin/         # Panel de administración
+```
+
+---
+
+## Autor
+
+**Jorge Casanova Sánchez**  
+[LinkedIn](https://www.linkedin.com/in/jorge-casanova-sánchez/) · [GitHub](https://github.com/Jorge5115)
